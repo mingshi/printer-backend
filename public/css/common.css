@@ -1,0 +1,43 @@
+
+
+.fileinput-button {
+    position: relative;
+}
+.fileinput-button input {
+    cursor: pointer;
+    direction: ltr;
+    font-size: 23px;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.osc-submit { text-align: center;}
+.osc-submit button { width: 140px;}
+
+.table > tbody > tr > td { vertical-align: middle; }
+.table th, .table td { text-align: center; vertical-align: middle; }
+.table th { background-color: #2C2C2C; color: #DDDDDD; font-weight: bold; }
+
+#popup-msg {
+    border-radius: 0 0 3px 3px;
+    font-size: 14px;
+    position: fixed !important;
+    top: 0;
+    z-index: 10000;
+}
+
+.bottomClass {
+    height:50px;
+    width:100%;
+    background-color:#000; 
+    position:fixed; 
+    bottom: 0px; 
+    z-index: 999;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+}
