@@ -28,6 +28,21 @@ class BaseController extends Controller {
         } 
 		$admin_id = Cookie::get('admin_id');
         $this->admin_id = $admin_id;
+
+		        $is_super_admin = FALSE;
+        if ($admin_id) {
+            $admin = AdminORM::find($admin_id);
+            if ($admin->is_super_admin == 1) {
+                $is_super_admin = TRUE;
+            }
+        }
+				
+		View::share(
+            'g',
+            array(
+                'is_super_admin' => $is_super_admin,
+            )
+        );
     }
 
 	protected function _fail($msg, $redirect_uri = '')

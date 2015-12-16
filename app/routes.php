@@ -13,5 +13,9 @@ Route::group(
         Route::any('/user/lists', ['as' => 'userLists', 'uses' => 'UserController@lists']);
         Route::any('/user/show', ['as' => 'userShow', 'uses' => 'UserController@show']);
         Route::any('/user/save', ['as' => 'userSave', 'uses' => 'UserController@save']);
+
+        //admin
+        Route::any('/admin/password', ['as' => 'adminPassword', 'uses' => 'AdminController@password']);
+        Route::any('/admin/lists', ['as' => 'adminLists', 'uses' => 'AdminController@lists']);
 	}
 );
