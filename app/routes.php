@@ -22,6 +22,11 @@ Route::group(
         Route::any('/template/classes', ['as' => 'templateClasses', 'uses' => 'TemplateClassController@lists']);
         Route::any('/template/show', ['as' => 'templateClassShow', 'uses' => 'TemplateClassController@show']);
         Route::any('/template/save', ['as' => 'templateClassSave', 'uses' => 'TemplateClassController@save']);
+
+        //banner
+        Route::any('/banner/lists', ['as' => 'bannerLists', 'uses' => 'BannerController@lists']);
+        Route::any('/banner/show', ['as' => 'bannerShow', 'uses' => 'BannerController@show']);
+        Route::any('/banner/save', ['as' => 'bannerSave', 'uses' => 'BannerController@save']);
 	}
 );
 

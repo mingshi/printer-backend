@@ -23,7 +23,7 @@
                 <li class="nav-temp-class"><a href="{{ URL::route('templateClasses') }}">相册分类</a></li>
                 <li class="nav-temp"><a href="">模版管理</a></li>
                 <li class="nav-order"><a href="">订单管理</a></li>
-                <li class="nav-banner"><a href="">广告管理</a></li>
+                <li class="nav-banner"><a href="{{ URL::route('bannerLists') }}">广告管理</a></li>
             </ul>
             
             <ul class="nav navbar-nav navbar-right">

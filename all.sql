@@ -34,3 +34,15 @@ CREATE TABLE `template_class` (
     PRIMARY KEY (`id`),
     UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `banner` (
+    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+    `sort` int(10) NOT NULL DEFAULT '0',
+    `elink` varchar(255) NOT NULL DEFAULT '',
+    `img_md5` varchar(32) NOT NULL DEFAULT '',
+    `expire` datetime NOT NULL DEFAULT '2015-12-17 00:00:00',
+    `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0下架 1上架 ',
+    `created_at` datetime NOT NULL,
+    `updated_at` datetime NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
