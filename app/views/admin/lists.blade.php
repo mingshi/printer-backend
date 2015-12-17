@@ -14,7 +14,7 @@
         <form method="get" class="form-horizontal" role="form" >
             <div class="form-group">
                 <label class="col-sm-1 control-label" for="username">用户名</label>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <input class="form-control input-sm" type="text" name="username" id="username" value="{{@$params['username']}}" />
                 </div>
                 <div class="osc-submit col-sm-1">
@@ -61,6 +61,7 @@
         @endforeach
     </tbody> 
 </table>
+<?= Pagination::render($page_size); ?>
 @stop
 
 @section('js')

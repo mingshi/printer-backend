@@ -20,7 +20,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="nav-user"><a href="{{ URL::route('userLists') }}">用户</a></li>
-                <li class="nav-temp-class"><a href="">相册分类</a></li>
+                <li class="nav-temp-class"><a href="{{ URL::route('templateClasses') }}">相册分类</a></li>
                 <li class="nav-temp"><a href="">模版管理</a></li>
                 <li class="nav-order"><a href="">订单管理</a></li>
                 <li class="nav-banner"><a href="">广告管理</a></li>

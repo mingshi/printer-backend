@@ -17,6 +17,11 @@ Route::group(
         //admin
         Route::any('/admin/password', ['as' => 'adminPassword', 'uses' => 'AdminController@password']);
         Route::any('/admin/passwordSave', ['as' => 'adminPasswordSave', 'uses' => 'AdminController@save']);
+
+        //模版分类
+        Route::any('/template/classes', ['as' => 'templateClasses', 'uses' => 'TemplateClassController@lists']);
+        Route::any('/template/show', ['as' => 'templateClassShow', 'uses' => 'TemplateClassController@show']);
+        Route::any('/template/save', ['as' => 'templateClassSave', 'uses' => 'TemplateClassController@save']);
 	}
 );
 
