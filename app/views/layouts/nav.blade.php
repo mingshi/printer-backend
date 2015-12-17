@@ -20,15 +20,19 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="nav-user"><a href="{{ URL::route('userLists') }}">用户</a></li>
+                <li class="nav-temp-class"><a href="">相册分类</a></li>
+                <li class="nav-temp"><a href="">模版管理</a></li>
+                <li class="nav-order"><a href="">订单管理</a></li>
+                <li class="nav-banner"><a href="">广告管理</a></li>
             </ul>
             
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle navigation-title account" data-toggle="dropdown">欢迎 {{ Cookie::get('admin_username') }}<b class="caret"></b></a>
                    	<ul class="dropdown-menu">
-                        <li><a href="{{ URL::route('adminPassword') }}">修改密码</a></li>
+                        <li class="adminPassword"><a href="{{ URL::route('adminPassword') }}">修改密码</a></li>
 						@if($g['is_super_admin'])
-                        <li><a href="{{ URL::route('adminLists') }}">管理员</a></li>
+                        <li class="adminLists"><a href="{{ URL::route('adminLists') }}">管理员</a></li>
 						@endif
                         <li><a href="{{ URL::route('logout') }}">退出</a></li>
                     </ul> 

@@ -18,6 +18,7 @@ class BaseController extends Controller {
 
     public $isAjax = FALSE;
 	protected $admin_id = 0;
+    protected $is_super_admin = FALSE;
 
     public function __construct()
     {
@@ -34,9 +35,10 @@ class BaseController extends Controller {
             $admin = AdminORM::find($admin_id);
             if ($admin->is_super_admin == 1) {
                 $is_super_admin = TRUE;
+                $this->is_super_admin = TRUE;
             }
         }
-				
+
 		View::share(
             'g',
             array(

@@ -65,8 +65,12 @@ class UserController extends BaseController
             $this->_fail('地址必填');
         }
 
+        try {
             UserORM::edit($id, $params);
             $this->_succ('保存成功', URL::route('userLists'));
+        } catch (Exception $e) {
+            $this->_fail('保存失败');
+        }
     }
 }
 

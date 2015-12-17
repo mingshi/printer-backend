@@ -23,3 +23,14 @@ CREATE TABLE `user` (
     KEY `real_name` (`real_name`),
     KEY `user_search_key` (`mobile`, `real_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `template_class` (
+    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+    `name` varchar(20) NOT NULL DEFAULT '',
+    `sort` int(10) NOT NULL DEFAULT '0',
+    `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '0=禁用 1=启用',
+    `created_at` datetime NOT NULL,
+    `updated_at` datetime NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;

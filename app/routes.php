@@ -16,6 +16,14 @@ Route::group(
 
         //admin
         Route::any('/admin/password', ['as' => 'adminPassword', 'uses' => 'AdminController@password']);
-        Route::any('/admin/lists', ['as' => 'adminLists', 'uses' => 'AdminController@lists']);
+        Route::any('/admin/passwordSave', ['as' => 'adminPasswordSave', 'uses' => 'AdminController@save']);
 	}
+);
+
+Route::group(
+    array('before' => array('login', 'is_super_admin')), function() {
+        Route::any('/admin/lists', ['as' => 'adminLists', 'uses' => 'AdminController@lists']);
+        Route::any('/admin/show', ['as' => 'adminShow', 'uses' => 'AdminController@show']);
+        Route::any('/admin/save', ['as' => 'adminSave', 'uses' => 'AdminController@save']);
+    }
 );

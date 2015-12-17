@@ -53,6 +53,15 @@ Route::filter('login', function()
     }
 });
 
+//验证是否为超级管理员
+Route::filter('is_super_admin', function() {
+    $admin_id = Cookie::get('admin_id');
+    $admin = AdminORM::whereId($admin_id)->first();
+    if ($admin->is_super_admin != BaseORM::ENABLE) {
+        return Redirect::route('forbidden');
+    }
+});
+
 Route::filter('auth', function()
 {
 	if (Auth::guest())

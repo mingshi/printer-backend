@@ -52,6 +52,10 @@ class EntryController extends BaseController
             $admin_username_cookie = Cookie::forever('admin_username', $admin->username);
             $k_cookie = Cookie::forever('k', Crypt::encrypt($admin->id . $admin->username));
             $login_time_cookie = Cookie::forever('login_time', time());
+
+            $admin->last_login_time = date('Y-m-d H:i:s');
+            $admin->save();
+
             return Redirect::route('home')->withCookie($k_cookie)->withCookie($admin_id_cookie)->withCookie($admin_username_cookie)->withCookie($login_time_cookie);
         } else {
             Session::flash('error', '用户没找到');
@@ -65,7 +69,7 @@ class EntryController extends BaseController
         $admin_username = Cookie::forget('admin_username');
         $k = Cookie::forget('k');
         $login_time = Cookie::forget('login_time');
-		return Redirect::route('thome')->withCookie($k)->withCookie($admin_id)
+		return Redirect::route('home')->withCookie($k)->withCookie($admin_id)
             ->withCookie($admin_username)->withCookie($login_time);
     } 
 
