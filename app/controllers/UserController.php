@@ -32,5 +32,41 @@ class UserController extends BaseController
             'params'    =>  $args
         ]); 
     }
+
+    public function show()
+    {
+        $id = (int)Input::get('id', 0);
+        $user = UserORM::find($id);
+        if ($id > 0 && empty($user)) {
+            Session::flash('error', '用户未找到');
+            return Redirect::route('userLists');           
+        }
+
+        return View::make('user.show', [
+            'row'   =>  $user,
+            'id'    =>  $id
+        ]);
+    }
+
+    public function save()
+    {
+        $id = (int)Input::get('id', 0);
+        $params = Input::all();
+        unset($params['id']);
+        if (empty($params['real_name'])) {
+            $this->_fail('姓名必填');
+        }
+
+        if (empty($params['mobile'])) {
+            $this->_fail('电话必填');
+        }
+
+        if (empty($params['address'])) {
+            $this->_fail('地址必填');
+        }
+
+            UserORM::edit($id, $params);
+            $this->_succ('保存成功', URL::route('userLists'));
+    }
 }
 

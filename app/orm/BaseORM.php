@@ -15,6 +15,11 @@ class BaseORM extends Eloquent
     const DISABLE = 0;
     const TAKE = 20;
 
+    public static $status_map = [
+        self::ENABLE    =>  '启用',
+        self::DISABLE   =>  '禁用',
+    ];
+
 	public static function statusMap()
     {
         return [

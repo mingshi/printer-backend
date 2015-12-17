@@ -4,6 +4,7 @@
 <ol class="breadcrumb">
     <li><a href="/">首页</a></li>
     <li class="active">用户列表</li>
+    <a href="{{ URL::route('userShow', ['id' => 0]) }}" class="btn btn-primary btn-xs pull-right">添加用户</a>
 </ol>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -30,6 +31,38 @@
         </form>
     </div>
 </div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>姓名</th>
+            <th>微信号</th>
+            <th>地址</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($rows as $r)
+        <tr>
+            <td>{{ $r->id }}</td>
+            <td>{{ $r->real_name }}</td>
+            <td>{{ $r->wx_id }}</td>
+            <td>{{ $r->address }}</td>
+            <td>
+                @if ($r->status == BaseORM::ENABLE)
+                <span class="glyphicon glyphicon-ok"></span>
+                @else
+                <span class="glyphicon glyphicon-remove"></span>
+                @endif
+            </td>
+            <td><a href="{{ URL::route('userShow', ['id' => $r->id]) }}">编辑</a></td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+<?= Pagination::render($page_size); ?>
 @stop
 
 @section('js')
