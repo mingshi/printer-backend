@@ -27,6 +27,9 @@ Route::group(
         Route::any('/banner/lists', ['as' => 'bannerLists', 'uses' => 'BannerController@lists']);
         Route::any('/banner/show', ['as' => 'bannerShow', 'uses' => 'BannerController@show']);
         Route::any('/banner/save', ['as' => 'bannerSave', 'uses' => 'BannerController@save']);
+
+        //图片上传
+        Route::post('/upload/image', ['as' => 'uploadImage', 'uses' => 'UploadController@index']);
 	}
 );
 

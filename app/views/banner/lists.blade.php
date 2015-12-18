@@ -24,7 +24,7 @@
         <tr>
             <td>{{ $r->id }}</td>
             <td>{{ $r->sort }}</td>
-            <td>{{ $r->img_md5 }}</td>
+            <td>@if(!empty($r->img_md5))<img src="{{ $r->img_md5 }}" style="width: 100px;" />@endif</td>
             <td>
            		@if ($r->status == BaseORM::ENABLE)
                 <span class="glyphicon glyphicon-ok"></span>

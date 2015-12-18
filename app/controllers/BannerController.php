@@ -25,5 +25,39 @@ class BannerController extends BaseController
             'page_size' =>  $page_size
         ]); 
     }
+
+    public function show()
+    {
+        $id = (int)Input::get('id', 0);
+        $banner = BannerORM::find($id);
+        if ($id > 0 && empty($banner)) {
+            Session::flash('error', 'Banner未找到');
+            return Redirect::route('bannerLists');
+        }
+
+        return View::make('banner.show', [
+            'row'   =>  $banner,
+            'id'    =>  $id
+        ]);
+    }
+
+    public function save()
+    {
+        $id = (int)Input::get('id', 0);
+        $params = Input::all();
+        $params['sort'] = intval(Input::get('sort', 0));
+
+        unset($params['id']);
+        if (empty($params['expire'])) {
+            $this->_fail('过期时间必填');
+        }
+
+        try {
+            BannerORM::edit($id, $params);
+            $this->_succ('保存成功', URL::route('bannerLists'));
+        } catch (Exception $e) {
+            $this->_fail('保存失败');
+        }
+    }
 }
 
