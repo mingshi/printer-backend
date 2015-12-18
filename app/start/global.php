@@ -79,4 +79,5 @@ App::down(function()
 |
 */
 
+require app_path().'/start/global_function.php';
 require app_path().'/filters.php';

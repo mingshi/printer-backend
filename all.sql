@@ -39,10 +39,37 @@ CREATE TABLE `banner` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
     `sort` int(10) NOT NULL DEFAULT '0',
     `elink` varchar(255) NOT NULL DEFAULT '',
-    `img_md5` varchar(32) NOT NULL DEFAULT '',
+    `img_md5` varchar(100) NOT NULL DEFAULT '',
     `expire` datetime NOT NULL DEFAULT '2015-12-17 00:00:00',
     `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0下架 1上架 ',
     `created_at` datetime NOT NULL,
     `updated_at` datetime NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `template` (
+    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+    `name` varchar(50) NOT NULL DEFAULT '',
+    `sort` int(10) NOT NULL DEFAULT '0',
+    `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0下架 1上架 ',
+    `price` decimal(6,2) NOT NULL DEFAULT '0',
+    `class` int(11) unsigned NOT NULL DEFAULT '0',
+    `created_at` datetime NOT NULL,
+    `updated_at` datetime NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `class_search` (`class`, `sort`),
+    CONSTRAINT `class` FOREIGN KEY (`class`) REFERENCES `template_class` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `template_source` (
+    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+    `source` varchar(100) NOT NULL DEFAULT '',
+    `template_id` int(11) unsigned NOT NULL DEFAULT '0',
+    `is_front` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否封面1是 0不是',
+    `created_at` datetime NOT NULL,
+    `updated_at` datetime NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `search_key` (`template_id`, `is_front`),
+    CONSTRAINT `template_id` FOREIGN KEY (`template_id`) REFERENCES `template` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+

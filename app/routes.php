@@ -19,9 +19,9 @@ Route::group(
         Route::any('/admin/passwordSave', ['as' => 'adminPasswordSave', 'uses' => 'AdminController@save']);
 
         //模版分类
-        Route::any('/template/classes', ['as' => 'templateClasses', 'uses' => 'TemplateClassController@lists']);
-        Route::any('/template/show', ['as' => 'templateClassShow', 'uses' => 'TemplateClassController@show']);
-        Route::any('/template/save', ['as' => 'templateClassSave', 'uses' => 'TemplateClassController@save']);
+        Route::any('/templateClass/classes', ['as' => 'templateClasses', 'uses' => 'TemplateClassController@lists']);
+        Route::any('/templateClass/show', ['as' => 'templateClassShow', 'uses' => 'TemplateClassController@show']);
+        Route::any('/templateClass/save', ['as' => 'templateClassSave', 'uses' => 'TemplateClassController@save']);
 
         //banner
         Route::any('/banner/lists', ['as' => 'bannerLists', 'uses' => 'BannerController@lists']);
@@ -30,7 +30,12 @@ Route::group(
 
         //图片上传
         Route::post('/upload/image', ['as' => 'uploadImage', 'uses' => 'UploadController@index']);
-	}
+
+        //模版
+        Route::any('/template/lists', ['as' => 'templateLists', 'uses' => 'TemplateController@lists']);
+        Route::any('/template/show', ['as' => 'templateShow', 'uses' => 'TemplateController@show']);
+        Route::any('/template/save', ['as' => 'templateSave', 'uses' => 'TemplateController@save']);
+    }
 );
 
 Route::group(
