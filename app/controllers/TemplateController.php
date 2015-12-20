@@ -37,7 +37,8 @@ class TemplateController extends BaseController
             'rows'   => $rows,
             'page'  =>  $page,
             'page_size' =>  $page_size,
-            'classes'   =>  $format_classes            
+            'classes'   =>  $format_classes,
+            'params'    =>  ['class' => $class] 
         ]);
     }
 }
