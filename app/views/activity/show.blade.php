@@ -23,21 +23,21 @@
            	<div class="form-group">
                 <label class="col-sm-2 control-label">内容</label>
                 <div class="col-sm-3">
-					<textarea class="form-control" id="content" name="content" style="height: 200px;">{{ htmlspecialchars(@$row->content) }}</textarea>
+					<textarea class="form-control" placeholder="必填" id="content" name="content" style="height: 200px;">{{ htmlspecialchars(@$row->content) }}</textarea>
 				</div>
             </div>
 			
            	<div class="form-group">
                 <label class="col-sm-2 control-label">上线时间</label>
                 <div class="col-sm-3">
-					<input type="text" name="start_time" id="start_time" class="form-control" value="{{ @$row->start_time }}" />
+					<input placeholder="必填" type="text" name="start_time" id="start_time" class="form-control" value="{{ @$row->start_time }}" />
 				</div>
             </div>
 			
            	<div class="form-group">
                 <label class="col-sm-2 control-label">过期时间</label>
                 <div class="col-sm-3">
-					<input type="text" name="expire" id="expire" class="form-control" value="{{ @$row->expire }}" />
+					<input type="text" placeholder="必填" name="expire" id="expire" class="form-control" value="{{ @$row->expire }}" />
 				</div>
             </div>
 

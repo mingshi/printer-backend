@@ -33,20 +33,44 @@ class ActivityController extends BaseController
     public function show()
     {
         $id = (int)Input::get('id', 0);
-        $activiy = ActivityORM::find($id);
+        $activity = ActivityORM::find($id);
         if ($id > 0 && empty($activity)) {
             Session::flash('error', '活动未找到');
             return Redirect::route('activityLists');
         }
 
         return View::make('activity.show', [
-            'row'   =>  $activiy,
+            'row'   =>  $activity,
             'id'    =>  $id
         ]); 
     }
 
     public function save()
     {
+        $params = Input::all();
+        if (empty($params['subject'])) {
+            $this->_fail('标题必填');
+        }
+
+        if (empty($params['content'])) {
+            $this->_fail('内容必填');
+        }
+
+        if (empty($params['start_time'])) {
+            $this->_fail('上线时间必填');
+        }
+        
+        if (empty($params['expire'])) {
+            $this->_fail('过期时间必填');
+        }
+
+        $id = $params['id'];
+        try {
+            ActivityORM::edit($id, $params);
+            $this->_succ('保存成功', URL::route('activityLists'));
+        } catch (Exception $e) {
+            $this->_fail('保存失败');
+        }
     }
 }
 

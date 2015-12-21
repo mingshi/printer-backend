@@ -22,6 +22,7 @@ class ActivityModel extends BaseModel
         if (!empty($params['expire'])) {
             $sql = $sql->where('expire', '<=', $params['expire']);
         }
+
         return $sql;
     } 
 }
