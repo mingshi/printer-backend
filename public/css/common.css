@@ -41,3 +41,13 @@
     -khtml-opacity: 0.5;
     opacity: 0.5;
 }
+
+ul.images {
+    list-style: none;
+}
+
+ul.images li {
+    float: left;
+    margin-left: 10px;
+    text-align: center;
+}

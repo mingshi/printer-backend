@@ -86,7 +86,7 @@ class EntryController extends BaseController
             public_path() . '/fonts/Vera.ttf',
         );
 
-        $cap = new Util_Captcha($fonts, 100, 30);
+        $cap = new Util_Captcha($fonts, 130, 30);
         $cap->setNumChars(4);
 
         $cap->Create();
