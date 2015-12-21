@@ -61,3 +61,6 @@ ul.album-image li {
     margin-left: 10px;
     width: 200px;
 }
+ul.album-image li img {
+    width: 200px;
+}
