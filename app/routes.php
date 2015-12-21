@@ -35,6 +35,10 @@ Route::group(
         Route::any('/template/lists', ['as' => 'templateLists', 'uses' => 'TemplateController@lists']);
         Route::any('/template/show', ['as' => 'templateShow', 'uses' => 'TemplateController@show']);
         Route::any('/template/save', ['as' => 'templateSave', 'uses' => 'TemplateController@save']);
+
+        //相册
+        Route::any('/album/lists', ['as' => 'albumLists', 'uses' => 'AlbumController@lists']);
+        Route::any('/album/show', ['as' => 'albumShow', 'uses' => 'AlbumController@show']);
     }
 );
 

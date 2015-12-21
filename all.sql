@@ -73,3 +73,24 @@ CREATE TABLE `template_source` (
     CONSTRAINT `template_id` FOREIGN KEY (`template_id`) REFERENCES `template` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE `album` (
+    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+    `user_id` int(11) unsigned NOT NULL DEFAULT '0',
+    `class` int(11) unsigned NOT NULL DEFAULT '0',
+    `created_at` datetime NOT NULL,
+    `updated_at` datetime NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `user_id` (`user_id`),
+    KEY `class` (`class`),
+    KEY `search_key` (`user_id`,`class`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `album_source` (
+    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+    `album_id` int(11) unsigned NOT NULL DEFAULT '0',
+    `source` varchar(100) NOT NULL DEFAULT '',
+    `created_at` datetime NOT NULL,
+    `updated_at` datetime NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `album_id` (`album_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;

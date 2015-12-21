@@ -51,3 +51,13 @@ ul.images li {
     margin-left: 10px;
     text-align: center;
 }
+
+ul.album-image {
+    list-style: none;
+}
+
+ul.album-image li {
+    float: left;
+    margin-left: 10px;
+    width: 200px;
+}

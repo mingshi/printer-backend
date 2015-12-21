@@ -14,5 +14,5 @@ return array(
 	*/
 
 	'debug' => true,
-
+    'image_host' => 'http://image.print.com',
 );
