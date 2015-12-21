@@ -24,7 +24,7 @@
                 <li class="nav-temp"><a href="{{ URL::route('templateLists') }}">模版管理</a></li>
                 <li class="nav-order"><a href="">订单管理</a></li>
                 <li class="nav-album"><a href="{{ URL::route('albumLists') }}">相册管理</a></li>
-                <li class="nav-activity"><a href="">活动管理</a></li>
+                <li class="nav-activity"><a href="{{ URL::route('activityLists') }}">活动管理</a></li>
                 <li class="nav-banner"><a href="{{ URL::route('bannerLists') }}">广告管理</a></li>
             </ul>
             

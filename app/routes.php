@@ -39,6 +39,11 @@ Route::group(
         //相册
         Route::any('/album/lists', ['as' => 'albumLists', 'uses' => 'AlbumController@lists']);
         Route::any('/album/show', ['as' => 'albumShow', 'uses' => 'AlbumController@show']);
+
+        //活动
+        Route::any('/activity/lists', ['as' => 'activityLists', 'uses' => 'ActivityController@lists']);
+        Route::any('/activity/show', ['as' => 'activityShow', 'uses' => 'ActivityController@show']);
+        Route::any('/activity/save', ['as' => 'activitySave', 'uses' => 'ActivityController@save']);
     }
 );
 

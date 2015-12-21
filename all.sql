@@ -94,3 +94,15 @@ CREATE TABLE `album_source` (
     PRIMARY KEY (`id`),
     KEY `album_id` (`album_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `activity` (
+    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+    `subject` varchar(100) NOT NULL DEFAULT '',
+    `content` text,
+    `start_time` datetime NOT NULL,
+    `expire` datetime NOT NULL,
+    `created_at` datetime NOT NULL,
+    `updated_at` datetime NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `search_key` (`start_time`, `expire`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
