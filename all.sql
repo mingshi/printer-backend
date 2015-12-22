@@ -91,6 +91,7 @@ CREATE TABLE `album_source` (
     `source` varchar(100) NOT NULL DEFAULT '',
     `created_at` datetime NOT NULL,
     `updated_at` datetime NOT NULL,
+    `is_front` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否显示在列表里面 默认第一张是封面',
     PRIMARY KEY (`id`),
     KEY `album_id` (`album_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
