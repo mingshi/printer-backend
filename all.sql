@@ -77,6 +77,7 @@ CREATE TABLE `album` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
     `user_id` int(11) unsigned NOT NULL DEFAULT '0',
     `class` int(11) unsigned NOT NULL DEFAULT '0',
+    `template_id` int(11) unsigned NOT NULL DEFAULT '0',
     `created_at` datetime NOT NULL,
     `updated_at` datetime NOT NULL,
     PRIMARY KEY (`id`),

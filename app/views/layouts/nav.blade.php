@@ -22,7 +22,7 @@
                 <li class="nav-user"><a href="{{ URL::route('userLists') }}">用户</a></li>
                 <li class="nav-temp-class"><a href="{{ URL::route('templateClasses') }}">相册分类</a></li>
                 <li class="nav-temp"><a href="{{ URL::route('templateLists') }}">模版管理</a></li>
-                <li class="nav-order"><a href="">订单管理</a></li>
+                <li class="nav-order"><a href="{{ URL::route('orderLists') }}">订单管理</a></li>
                 <li class="nav-album"><a href="{{ URL::route('albumLists') }}">相册管理</a></li>
                 <li class="nav-activity"><a href="{{ URL::route('activityLists') }}">活动管理</a></li>
                 <li class="nav-banner"><a href="{{ URL::route('bannerLists') }}">广告管理</a></li>

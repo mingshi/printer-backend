@@ -44,6 +44,11 @@ Route::group(
         Route::any('/activity/lists', ['as' => 'activityLists', 'uses' => 'ActivityController@lists']);
         Route::any('/activity/show', ['as' => 'activityShow', 'uses' => 'ActivityController@show']);
         Route::any('/activity/save', ['as' => 'activitySave', 'uses' => 'ActivityController@save']);
+
+        //订单
+        Route::any('/order/lists', ['as' => 'orderLists', 'uses' => 'OrderController@lists']);
+        Route::any('/order/show', ['as' => 'orderShow', 'uses' => 'OrderController@show']);
+        Route::any('/order/save', ['as' => 'orderSave', 'uses' => 'OrderController@save']);
     }
 );
 
