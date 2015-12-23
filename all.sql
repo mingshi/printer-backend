@@ -107,3 +107,41 @@ CREATE TABLE `activity` (
     PRIMARY KEY (`id`),
     KEY `search_key` (`start_time`, `expire`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `orders` (
+    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+    `user_id` int(11) unsigned NOT NULL DEFAULT '0',
+    `album_id` int(11) unsigned NOT NULL DEFAULT '0',
+    `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '1下单2已打印3已发货4已完成',
+    `quantity` int(10) NOT NULL DEFAULT '1' COMMENT '定制的相册数量',
+    `total_amount` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '总计金额',
+    `pay_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0为未支付 1为已支付',
+    `out_trade_no` varchar(64) NOT NULL DEFAULT '' COMMENT '付款订单号',
+    `created_at` datetime NOT NULL,
+    `updated_at` datetime NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `user_id` (`user_id`),
+    KEY `search_key` (`user_id`, `status`, `pay_status`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `pay_ment` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `out_trade_no` varchar(64) NOT NULL COMMENT '付款订单号',
+    `notify_time` datetime DEFAULT NULL COMMENT '异步回调通知时间',
+    `subject` varchar(256) DEFAULT NULL COMMENT '商品名称',
+    `quantity` int(11) DEFAULT NULL COMMENT '购买数量',
+    `total_fee` decimal(10,2) DEFAULT NULL COMMENT '交易金额 该笔订单的总金额。',
+    `price` decimal(10,2) DEFAULT NULL,
+    `body` varchar(400) DEFAULT NULL COMMENT '商品描述',
+    `gmt_create` datetime DEFAULT NULL COMMENT '交易创建时间',
+    `user_id` int(11) unsigned NOT NULL DEFAULT '0',
+    `client_paid` varchar(25) DEFAULT NULL COMMENT '告知后端客户端是否已经支付完成',
+    `server_paid` tinyint(1) NOT NULL DEFAULT '0' COMMENT '异步回调是否成功 0失败 1成功',
+    `result_code` varchar(64) DEFAULT NULL COMMENT '业务结果',
+    `return_code` varchar(64) DEFAULT NULL COMMENT '返回状态码',
+    `transaction_id` varchar(64) DEFAULT NULL COMMENT '微信支付订单号',
+    `time_end` varchar(64) DEFAULT NULL COMMENT '支付完成时间',
+    `openid` varchar(64) DEFAULT NULL COMMENT '用户标识 ',
+    PRIMARY KEY (`id`),
+    KEY `out_trade_no` (`out_trade_no`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;

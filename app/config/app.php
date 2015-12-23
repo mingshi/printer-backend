@@ -14,7 +14,8 @@ return array(
 	*/
 
 	'debug' => false,
-
+    
+    'image_host' => 'http://img.dayinxiangsh.com',
 	/*
 	|--------------------------------------------------------------------------
 	| Application URL
