@@ -12,10 +12,19 @@ class UploadController extends BaseController
     public function index()
     {
         $res = $this->_send();
-       	if ($res['status'] == 'err') {
-            $retval = $this->getAjaxError($res['md5']);
+        $params = Input::all();
+        if (isset($params['dir'])) {
+            if ($res['status'] == 'err') {
+                $retval = $this->getAjaxErrorForEditor($res['md5']);
+            } else {
+                $retval = $this->getAjaxSuccessForEditor($res['md5'], $res['path']);
+            }
         } else {
-            $retval = $this->getAjaxSuccess($res['md5'], $res['path']);
+            if ($res['status'] == 'err') {
+                $retval = $this->getAjaxError($res['md5']);
+            } else {
+                $retval = $this->getAjaxSuccess($res['md5'], $res['path']);
+            }
         }
         echo $retval;
         exit; 
@@ -68,12 +77,28 @@ class UploadController extends BaseController
         return json_encode($std);
     }
 
+     private function getAjaxErrorForEditor($error_msg)
+     {
+        $std = new stdClass;
+        $std->error = 1;
+        $std->message = $error_msg;
+        return json_encode($std);
+     }
+
     private function getAjaxSuccess($success_val, $file_name)
     {
         $std = new stdClass;
         $std->status = 1;
         $std->md5 = $success_val;
         $std->path = $file_name;
+        return json_encode($std);
+    }
+
+    private function getAjaxSuccessForEditor($success_val, $file_name)
+    {
+        $std = new stdClass;
+        $std->error = 0;
+        $std->url = Config::get('app.image_host') . $file_name;
         return json_encode($std);
     }
 }
