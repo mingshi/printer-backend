@@ -49,7 +49,7 @@ class TemplateClassController extends BaseController
         $id = (int)Input::get('id', 0);
         $params = Input::all();
         unset($params['id']);
-    
+
         $params['sort'] = intval(Input::get('sort', 0));
 
         if (empty($params['name'])) {

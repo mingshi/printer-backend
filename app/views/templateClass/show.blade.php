@@ -38,7 +38,24 @@
 					</select>
                 </div>
             </div>
-			
+
+            <div class="form-group">
+                  <label class="col-sm-2 control-label">类型封面</label>
+                  <div class="col-sm-4">
+                      <input type="hidden" id="front" name="front" value="<?= @$row->front ?>" />
+                      <span id="image-img-span">
+                          @if (@$row->front)
+                          <img src="{{$row->front}}" style="width:150px;" />
+                          @endif
+                      </span>
+                      <span class="btn btn-primary fileinput-button">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>选择图片</span>
+                        <input style="width:200px;" id="image-img-btn" type="file" multiple="" name="file"/>
+                      </span>
+                  </div>
+              </div> 
+
 			<div class="form-group" style="margin-top:30px">
                 <div class="osc-submit">
                     <button type="submit" class="btn btn-success">保存</button>
@@ -53,9 +70,24 @@
 @stop
 
 @section('js')
+<?= HTML::script('js/jquery.iframe-transport.js'); ?>
+<?= HTML::script('js/jquery.fileupload.js'); ?>
 <script type="text/javascript">
 $(function() {
     $('.nav-temp-class').addClass('active');
+
+    $('#image-img-btn').fileupload({
+        url: "{{ URL::route('uploadImage') }}",
+        done: function (e, data) {
+            var result = $.parseJSON(data.result);
+            if (result.status == 1) {
+                $('#image-img-span').html('<img src="' + result.path + '" style="width:150px;" />');
+                $('#front').val(result.path);
+            } else {
+                alert(result.error);
+            }
+        }
+    });
 });
 </script>
 @stop

@@ -29,6 +29,7 @@ CREATE TABLE `template_class` (
     `name` varchar(20) NOT NULL DEFAULT '',
     `sort` int(10) NOT NULL DEFAULT '0',
     `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '0=禁用 1=启用',
+    `front` varchar(100) NOT NULL DEFAULT '',
     `created_at` datetime NOT NULL,
     `updated_at` datetime NOT NULL,
     PRIMARY KEY (`id`),
