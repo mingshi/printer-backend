@@ -26,7 +26,25 @@
 					<textarea class="form-control" placeholder="必填" id="content" name="content" style="height: 200px;">{{ htmlspecialchars(@$row->content) }}</textarea>
 				</div>
             </div>
-			
+        
+            <div class="form-group">
+                  <label class="col-sm-2 control-label">列表图片</label>
+                  <div class="col-sm-4">
+                      <input type="hidden" id="list_image" name="list_image" value="<?= @$row->list_image ?>" />
+                      <span id="image-img-span">
+                          @if (@$row->list_image)
+                          <img src="{{$row->list_image}}" style="width:150px;" />
+                          @endif
+                      </span>
+                      <span class="btn btn-primary fileinput-button">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>选择图片</span>
+                        <input style="width:200px;" id="image-img-btn" type="file" multiple="" name="file"/>
+                      </span>
+                  </div>
+              </div> 
+
+
            	<div class="form-group">
                 <label class="col-sm-2 control-label">上线时间</label>
                 <div class="col-sm-3">
@@ -54,12 +72,27 @@
 @stop
 
 @section('js')
+<?= HTML::script('js/jquery.iframe-transport.js'); ?>
+<?= HTML::script('js/jquery.fileupload.js'); ?>
 <?= HTML::script('packages/kindEditor/kindeditor-min.js'); ?>
 <?= HTML::script('packages/kindEditor/lang/zh_CN.js'); ?>
 <script type="text/javascript">
 $(function(){
     $('.nav-activity').addClass('active');
 	$('#expire, #start_time').datepicker({ dateFormat: 'yy-mm-dd', inline: true });
+
+    $('#image-img-btn').fileupload({
+        url: "{{ URL::route('uploadImage') }}",
+        done: function (e, data) {
+            var result = $.parseJSON(data.result);
+            if (result.status == 1) {
+                $('#image-img-span').html('<img src="' + result.path + '" style="width:150px;" />');
+                $('#list_image').val(result.path);
+            } else {
+                alert(result.error);
+            }
+        }
+    }); 
 });
 KindEditor.ready(function(K) {
 	var options = {

@@ -147,3 +147,5 @@ CREATE TABLE `pay_ment` (
     PRIMARY KEY (`id`),
     KEY `out_trade_no` (`out_trade_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+
+alter table activity add `list_image` varchar(100) NOT NULL DEFAULT '';

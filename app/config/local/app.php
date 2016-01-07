@@ -14,5 +14,5 @@ return array(
 	*/
 
 	'debug' => true,
-    'image_host' => 'http://image.pwap.com',
+    'image_host' => 'http://pwap.com',
 );
