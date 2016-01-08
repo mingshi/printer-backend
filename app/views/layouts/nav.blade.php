@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
-    <title>小区阿福后台</title>
+    <title>大印相管理后台</title>
     <?= HTML::style('css/bootstrap.min.css'); ?>
     <?= HTML::style('css/common.css'); ?>
     <?= HTML::style('css/ui-lightness/jquery-ui-1.10.4.custom.min.css'); ?>
@@ -15,7 +15,7 @@
 <div role="navigation" class="navbar navbar-inverse navbar-static-top">
     <div class="container" style="width: 100%;">
         <div class="navbar-header">
-            <a href="/" class="navbar-brand">小区阿福后台</a>
+            <a href="/" class="navbar-brand">大印相管理后台</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">

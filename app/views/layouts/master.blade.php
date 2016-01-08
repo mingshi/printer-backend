@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
-    <title>阿福商业管理后台</title>
+    <title>大印相管理后台</title>
     <?= HTML::style('css/smoothness/jquery-ui-1.9.1.custom.min.css'); ?>
     <?= HTML::style('css/bootstrap.min.css'); ?>
     <?= HTML::style('css/bootstrap-responsive.min.css'); ?>

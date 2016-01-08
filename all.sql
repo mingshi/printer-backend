@@ -144,10 +144,12 @@ CREATE TABLE `pay_ment` (
     `transaction_id` varchar(64) DEFAULT NULL COMMENT '微信支付订单号',
     `time_end` varchar(64) DEFAULT NULL COMMENT '支付完成时间',
     `openid` varchar(64) DEFAULT NULL COMMENT '用户标识 ',
+    `order_id` int(10) NOT NULL DEFAULT '0',
+    `updated_at` datetime DEFAULT NULL,
+    `created_at` datetime DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `out_trade_no` (`out_trade_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
-
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 alter table activity add `list_image` varchar(100) NOT NULL DEFAULT '';
 alter table pay_ment add `order_id` int(10) NOT NULL DEFAULT '0';
 alter table pay_ment add `updated_at` datetime;
