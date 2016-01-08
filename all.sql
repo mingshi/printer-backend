@@ -149,3 +149,6 @@ CREATE TABLE `pay_ment` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 alter table activity add `list_image` varchar(100) NOT NULL DEFAULT '';
+alter table pay_ment add `order_id` int(10) NOT NULL DEFAULT '0';
+alter table pay_ment add `updated_at` datetime;
+alter table pay_ment add `created_at` datetime;
